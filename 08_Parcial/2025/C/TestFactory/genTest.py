@@ -19,10 +19,9 @@ random.seed(seed)
 
 with open("../Tests/Test_{:02d}.in".format(int(idTest)), "w") as f:
     f.write(str(N) + "\n")
-    # Create random list of N numbers between minValue and maxValue allowing duplicates
-    lista = []
-    for i in range(N):
-        val = max(i+1,minValue)
-        val = min(val, maxValue)
-        lista.append(val)
-    f.write(" ".join(map(str, lista)) + "\n")
+    for _ in range(N):
+        a = random.randint(minValue, maxValue)
+        b = random.randint(minValue, maxValue)
+        if a > b:
+            a, b = b, a
+        f.write(f"{a} {b}\n")

@@ -22,7 +22,6 @@ with open("../Tests/Test_{:02d}.in".format(int(idTest)), "w") as f:
     # Create random list of N numbers between minValue and maxValue allowing duplicates
     lista = []
     for i in range(N):
-        val = max(i+1,minValue)
-        val = min(val, maxValue)
+        val = max(maxValue - i,minValue)
         lista.append(val)
     f.write(" ".join(map(str, lista)) + "\n")
